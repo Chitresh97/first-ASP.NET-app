@@ -1,31 +1,21 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CRUD.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="CRUD.Default" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+  
             <asp:GridView ID="gvStudents" runat="server" 
-                AutoGenerateColumns="false" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
+                AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="ID" ShowHeaderWhenEmpty="True"
                 onRowCommand="gvStudents_RowCommand" OnRowEditing="gvStudents_RowEditing" OnRowCancelingEdit="gvStudents_RowCancelingEdit" OnRowDeleting="gvStudents_RowDeleting" 
                 OnRowUpdating="gvStudents_RowUpdating"
-                CellPadding="4" ForeColor="#333333" GridLines="None" Height="269px" Width="211px" style="margin-bottom: 0px">
+                CellPadding="4" ForeColor="Black" GridLines="Horizontal" Height="269px" Width="211px" style="margin-bottom: 0px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
 
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
 
                 <Columns>
 
@@ -33,10 +23,7 @@
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("ID") %>' runat="server"></asp:Label>
                         </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtID" Text='<%# Eval("ID") %>' runat="server" />
-                        </EditItemTemplate>
-                       
+                                          
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Name">
@@ -47,7 +34,7 @@
                             <asp:TextBox ID="txtName" Text='<%# Eval("Name") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtNameFooter" runat="server" />
+                            <asp:TextBox ID="txtNameFooter" placeholder="Name" runat="server" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -59,7 +46,7 @@
                             <asp:TextBox ID="txtFather" Text='<%# Eval("Father") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtFatherFooter" runat="server" />
+                            <asp:TextBox ID="txtFatherFooter" placeholder="Father's Name" runat="server" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -71,7 +58,7 @@
                             <asp:TextBox ID="txtMother" Text='<%# Eval("Mother") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtMotherFooter" runat="server" />
+                            <asp:TextBox ID="txtMotherFooter" placeholder="Mother's Name" runat="server" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -83,7 +70,7 @@
                             <asp:TextBox ID="txtAge" Text='<%# Eval("Age") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtAgeFooter" runat="server" />
+                            <asp:TextBox ID="txtAgeFooter" placeholder="Age" onkeydown = "return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57 && isNaN(event.key))) && event.keyCode!=32);" runat="server" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -92,10 +79,25 @@
                             <asp:Label Text='<%# Eval("Class") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
+                            
                             <asp:TextBox ID="txtClass" Text='<%# Eval("Class") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtClassFooter" runat="server" />
+                            <asp:DropDownList ID="ddlClassFooter" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
+                            </asp:DropDownList>
+                            <%--<asp:TextBox ID="txtClassFooter" placeholder="Class" runat="server" />--%>
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -107,7 +109,7 @@
                             <asp:TextBox ID="txtSchool" Text='<%# Eval("School") %>' runat="server" />
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtSchoolFooter" runat="server" />
+                            <asp:TextBox ID="txtSchoolFooter" placeholder="School's Name" runat="server" />
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -131,12 +133,13 @@
                     
                 </Columns>
             </asp:GridView>
+            
             <br />
+
             <asp:Label ID="lblSuccessMessage" Text="" runat="server" Forecolor="Green"/>
             <br />
             <asp:Label ID="lblErrorMessage" Text="" runat="server" Forecolor="Red"/>
 
-        </div>
-    </form>
-</body>
-</html>
+    </asp:Content>
+
+

@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="Site.master.cs" Inherits="CRUD.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td colspan="2" style="width: 1000px; height:80px; background-color:#333333; color:white;" >
+                        <h1 style="text-align:center;">Online Student Registration Portal</h1>
+                        <br />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; height:500px; background-color:#CCCC99; color:black;">
+                        <h2 style="text-align:center;">Menu</h2>
+                        <ul style="list-style: none;">
+                            <li><a href="#" style="color:black; text-decoration-style:none;">Home</a></li>
+                            <li><a href="#" style="color:black; text-decoration-style:none;">Contact</a></li>
+                            <li><a href="#" style="color:black; text-decoration-style:none;">About</a></li>
+                            <li><a href="#" style="color:black; text-decoration-style:none;">Login</a></li>
+                        </ul>
+
+                    </td>
+                    <td style="width: 800px"; height:"500px";>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>            
+        </div>
+    </form>
+</body>
+</html>

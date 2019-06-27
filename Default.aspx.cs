@@ -66,7 +66,7 @@ namespace CRUD
                         sqlCmd.Parameters.AddWithValue("@Father", (gvStudents.FooterRow.FindControl("txtFatherFooter") as TextBox).Text.Trim());
                         sqlCmd.Parameters.AddWithValue("@Mother", (gvStudents.FooterRow.FindControl("txtMotherFooter") as TextBox).Text.Trim());
                         sqlCmd.Parameters.AddWithValue("@Age", (gvStudents.FooterRow.FindControl("txtAgeFooter") as TextBox).Text.Trim());
-                        sqlCmd.Parameters.AddWithValue("@Class", (gvStudents.FooterRow.FindControl("txtClassFooter") as TextBox).Text.Trim());
+                        sqlCmd.Parameters.AddWithValue("@Class", (gvStudents.FooterRow.FindControl("ddlClassFooter") as DropDownList).SelectedItem.Text);
                         sqlCmd.Parameters.AddWithValue("@School", (gvStudents.FooterRow.FindControl("txtSchoolFooter") as TextBox).Text.Trim());
 
                         sqlCmd.ExecuteNonQuery();
