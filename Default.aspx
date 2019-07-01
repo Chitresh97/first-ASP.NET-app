@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
   
+            <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+&nbsp;
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" />
+  
             <asp:GridView ID="gvStudents" runat="server" 
                 AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="ID" ShowHeaderWhenEmpty="True"
                 onRowCommand="gvStudents_RowCommand" OnRowEditing="gvStudents_RowEditing" OnRowCancelingEdit="gvStudents_RowCancelingEdit" OnRowDeleting="gvStudents_RowDeleting" 

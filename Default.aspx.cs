@@ -165,5 +165,33 @@ namespace CRUD
             }
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            
+            SqlConnection sqlCon = new SqlConnection(connectionString);
+            string search = "SELECT * FROM Students WHERE (Name Like '%'+@Name+'%')";
+            SqlCommand sqlCmd = new SqlCommand(search, sqlCon);
+            sqlCmd.Parameters.AddWithValue("@Name",SqlDbType.VarChar).Value=txtSearch.Text;
+            sqlCon.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            SqlDataAdapter sqlDa = new SqlDataAdapter();
+            sqlDa.SelectCommand = sqlCmd;
+
+            DataSet ds = new DataSet();
+            sqlDa.Fill(ds, "Name");
+
+          
+            gvStudents.DataSource = ds;
+            gvStudents.DataBind();
+
+            sqlCon.Close();
+            
+            
+
+
+        }
     }
 }
