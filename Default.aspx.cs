@@ -6,12 +6,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace CRUD
 {
     public partial class Default : System.Web.UI.Page
+
     {
-        string connectionString = "Data Source=(local); Initial Catalog=Practise; integrated security=SSPI";
+
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        //string connectionString = "Data Source=(local); Initial Catalog=Practise; integrated security=SSPI";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -167,9 +171,7 @@ namespace CRUD
         }
 
         protected void Button1_Click(object sender, EventArgs e)
-        {
-
-            
+        {   
             SqlConnection sqlCon = new SqlConnection(connectionString);
             string search = "SELECT * FROM Students WHERE (Name Like '%'+@Name+'%')";
             SqlCommand sqlCmd = new SqlCommand(search, sqlCon);
